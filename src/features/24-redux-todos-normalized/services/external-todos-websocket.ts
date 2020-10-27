@@ -2,8 +2,6 @@ import faker from 'faker';
 import { merge, shuffle } from 'lodash';
 
 import { store } from '../../../store/store';
-import { actions, selectors } from '../../../store/24-todos'
-import { selectors as editSelectors } from '../../../store/24-todos-edit'
 
 import { Todo } from '../models/todo';
 
@@ -20,11 +18,13 @@ const externalTodosWebsocket = {
   init() {
     store.subscribe(() => {
       const state = store.getState();
-      const isRemoving = selectors.selectIsRemoving(state);
-      const isUpdating = selectors.selectIsUpdating(state);
-      const isEditing = editSelectors.selectIsEditing(state);
+
+      // TODO
+      const isRemoving = {};
+      const isUpdating = {};
+      const isEditing = {};
       this.isBlocked = merge({}, isRemoving, isEditing, isUpdating);
-      const allTodos = selectors.selectTodos(state);
+      const allTodos = [] as Todo[];
       this.notBlockedTodos = allTodos.filter((t: Todo) => !this.isBlocked[t.id]);
     });
   },
@@ -34,11 +34,12 @@ const externalTodosWebsocket = {
     this.intervalId = setInterval(() => {
       i++;
       if (i % delayInSec.create === 0) {
-        store.dispatch(actions.createTodoRequest(this.generateTodoData()));
+        // TODO create todo
       }
       if (i % delayInSec.update === 0) {
         const todoToUpdate = shuffle(this.notBlockedTodos)[0];
-        store.dispatch(actions.updateTodoRequest(todoToUpdate, this.generateTodoData()));
+        const data = this.generateTodoData()
+        // TODO update todo
       }
     }, 1000);
   },

@@ -16,31 +16,18 @@ export const newSyncCounterSlice = createSlice({
   name: newSyncCounterSliceId,
   initialState,
   reducers: {
-    increment: {
-      reducer: (state, action: PayloadAction<{ incBy: number; updatedAt: number }>) => {
-        const { incBy, updatedAt } = action.payload;
-        state.value += incBy;
-        state.updatedAt = updatedAt;
-      },
-      prepare: (incBy: number) => {
-        return {
-          payload: {
-            incBy,
-            updatedAt: Date.now()
-          }
-        };
-      }
-    },
+    // TODO increment: {},
     decrement: {
-      reducer: (state, action: PayloadAction<number>) => {
-        state.value += action.payload;
+      reducer: (state) => {
+        // TODO
       },
-      prepare: (value: number) => {
-        return { payload: value };
+      prepare: () => {
+        // TODO
+        return { payload: null };
       }
     },
     reset: (state) => {
-      state.value = initialState.value;
+      // TODO
     },
   },
 });

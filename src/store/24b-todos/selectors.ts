@@ -22,45 +22,10 @@ const selectTodoEntitiesState = createSelector(
 
 const adapterSelectors = todoEntitiesAdapter.getSelectors(selectTodoEntitiesState);
 
-export const selectAllTodos = adapterSelectors.selectAll;
+// TODO: export const selectAllTodos
 
-const selectTodosStatuses = createSelector(
-  [selectStateSlice],
-  (state) => state.todosStatuses
-);
+// TODO export const selectIsRemovingTodosMap
 
-export const selectIsRemovingTodosMap = createSelector(
-  [selectTodosStatuses],
-  (todosStatuses) => {
-    return reduce(todosStatuses, (memo, status, id) => {
-      if (status === TodoStatus.Removing) {
-        memo[id] = true;
-      }
-      return memo;
-    }, {} as any);
-  }
-);
+// TODO: export const selectIsSavingTodosMap
 
-export const selectIsSavingTodosMap = createSelector(
-  [selectTodosStatuses],
-  (todosStatuses) => {
-    return reduce(todosStatuses, (memo, status, id) => {
-      if (status === TodoStatus.Saving) {
-        memo[id] = true;
-      }
-      return memo;
-    }, {} as any);
-  }
-);
-
-export const selectIsEditingTodosMap = createSelector(
-  [selectTodosStatuses],
-  (todosStatuses) => {
-    return reduce(todosStatuses, (memo, status, id) => {
-      if (status === TodoStatus.Editing) {
-        memo[id] = true;
-      }
-      return memo;
-    }, {} as any);
-  }
-);
+// TODO export const selectIsEditingTodosMap

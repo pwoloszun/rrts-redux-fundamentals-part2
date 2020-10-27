@@ -6,24 +6,25 @@ import {
 } from '../../../../store/21b-newSyncCounter';
 
 import Counter from '../../../../components/Counter';
+import { AppDispatch, RootState } from '../../../../store/store';
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: RootState) => {
   return {
-    value: selectors.selectCounterValue(state),
-    squareValue: selectors.selectSquareValue(state)
+    value: 123,
+    squareValue: 997
   }
 };
 
-const mapDispatchToProps = function (dispatch: any) {
+const mapDispatchToProps = function (dispatch: AppDispatch) {
   return {
     onIncrement() {
-      dispatch(actions.increment(5));
+      console.log('onIncrement TODO');
     },
     onDecrement() {
-      dispatch(actions.decrement(3));
+      console.log('onDecrement TODO');
     },
     onReset() {
-      dispatch(actions.reset());
+      console.log('onReset TODO');
     }
   }
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import NormalizedTodoList from './containers/NormalizedTodoList';
-import externalTodosWebsocket from './services/external-todos-websocket';
+// import externalTodosWebsocket from './services/external-todos-websocket';
 
 class TodosNormalized extends React.Component {
   render() {

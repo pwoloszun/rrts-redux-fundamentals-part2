@@ -83,12 +83,12 @@ class NormalizedTodoList extends React.Component<Props> {
 
 const mapStateToProps = (state: RootState) => {
   return {
-    todos: selectors.selectAllTodos(state),
-    isFetching: selectors.selectIsFetchingMany(state),
+    todos: [],
+    isFetching: true,
     // todos statuses
-    isRemoving: selectors.selectIsRemovingTodosMap(state),
-    isSaving: selectors.selectIsSavingTodosMap(state),
-    isEditing: selectors.selectIsEditingTodosMap(state),
+    isRemoving: {},
+    isSaving: {},
+    isEditing: {},
   }
 };
 
@@ -98,19 +98,19 @@ const mapDispatchToProps = function (dispatch: any) {
       dispatch(thunks.fetchAllTodos());
     },
     removeTodo(item: Todo) {
-      dispatch(thunks.removeTodo(item));
+      // TODO
     },
     createTodo(params: TodoParams) {
       console.log('createTodo TODO'); // TODO
     },
     editTodo(item: Todo) {
-      dispatch(actions.startEditingTodo(item));
+      // TODO
     },
     saveEditTodo(item: Todo, params: TodoParams) {
-      dispatch(thunks.optimisticUpdateTodo(item, params));
+      // TODO
     },
     cancelEditTodo(item: Todo) {
-      dispatch(actions.cancelEditingTodo(item));
+      // TODO
     },
   };
 };

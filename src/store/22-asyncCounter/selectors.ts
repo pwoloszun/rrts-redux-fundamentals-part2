@@ -13,17 +13,3 @@ export const selectAsyncCounterValue = createSelector(
     return state.asyncValue;
   }
 );
-
-export const selectIsLoading = createSelector(
-  [selectStateSlice],
-  (state) => {
-    return state.isLoading;
-  }
-);
-
-export const selectUpdatedAt = createSelector(
-  [selectStateSlice],
-  (state) => {
-    return state.updatedAt;
-  }
-);

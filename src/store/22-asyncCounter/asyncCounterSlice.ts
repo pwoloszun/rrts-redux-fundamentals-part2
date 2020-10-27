@@ -21,33 +21,27 @@ export const asyncCounterSlice = createSlice({
   initialState,
   reducers: {
     incrementRequest: (state) => {
-      state.isLoading = true;
+      // TODO
     },
     incrementSuccess: {
-      reducer: (state, action: PayloadAction<{ incBy: number, updatedAt: number }>) => {
-        const { incBy, updatedAt } = action.payload;
-        state.isLoading = false;
-        state.asyncValue += incBy;
-        state.updatedAt = updatedAt;
+      reducer: (state) => {
+        // TODO
       },
       prepare: (incBy: number) => {
+        // TODO
         return {
-          payload: {
-            incBy,
-            updatedAt: Date.now()
-          }
+          payload: null
         };
       }
     },
     incrementError: {
-      reducer: (state, action: PayloadAction<Error>) => {
-        state.isLoading = false;
-        state.error = action.payload;
+      reducer: (state) => {
+        // TODO
       },
       prepare: (error: Error) => {
+        // TODO
         return {
-          error: true,
-          payload: error,
+          payload: null
         };
       }
     },

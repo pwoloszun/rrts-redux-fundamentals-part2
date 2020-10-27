@@ -8,17 +8,17 @@ import {
 
 const mapStateToProps = (state: any) => {
   return {
-    value: selectors.selectAsyncCounterValue(state),
+    value: -12345,
   }
 };
 
 const mapDispatchToProps = function (dispatch: any) {
   return {
     onIncrement() {
-      dispatch(thunks.incrementAsyncCounter(5));
+      // TODO
     },
     onDecrement() {
-      // dispatch(actions.decrementRequest());
+      // TODO
     }
   }
 };

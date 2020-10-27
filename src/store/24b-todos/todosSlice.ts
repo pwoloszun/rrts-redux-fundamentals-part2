@@ -55,76 +55,11 @@ export const todosSlice = createSlice({
         };
       }
     },
-    startEditingTodo: {
-      reducer: (state, action: PayloadAction<{ todoId: number }>) => {
-        const { todoId } = action.payload;
-        state.todosStatuses[todoId] = TodoStatus.Editing;
-      },
-      prepare: (todo: Todo) => {
-        return {
-          payload: { todoId: todo.id }
-        };
-      }
-    },
-    cancelEditingTodo: {
-      reducer: (state, action: PayloadAction<{ todoId: number }>) => {
-        const { todoId } = action.payload;
-        state.todosStatuses[todoId] = TodoStatus.Persisted;
-      },
-      prepare: (todo: Todo) => {
-        return {
-          payload: { todoId: todo.id }
-        };
-      }
-    },
-    optimisticUpdateTodoRequest: {
-      reducer: (state, action: PayloadAction<{ updateParams: TodoUpdate }>) => {
-        const { updateParams } = action.payload;
-        const todoId = updateParams.id as number;
-        state.todosStatuses[todoId] = TodoStatus.Saving;
-        state.todos = todoEntitiesAdapter.updateOne(state.todos, updateParams);
-      },
-      prepare: (todo: Todo, changes: Partial<Todo>) => {
-        const updateParams: TodoUpdate = { id: todo.id, changes };
-        return {
-          payload: { updateParams }
-        };
-      }
-    },
-    optimisticUpdateTodoSuccess: {
-      reducer: (state, action: PayloadAction<{ todoId: number }>) => {
-        const { todoId } = action.payload;
-        state.todosStatuses[todoId] = TodoStatus.Persisted;
-      },
-      prepare: (todo: Todo) => {
-        return {
-          payload: { todoId: todo.id }
-        };
-      }
-    },
-    removeTodoRequest: {
-      reducer: (state, action: PayloadAction<{ todoId: number }>) => {
-        const { todoId } = action.payload;
-        state.todosStatuses[todoId] = TodoStatus.Removing;
-      },
-      prepare: (todo: Todo) => {
-        return {
-          payload: { todoId: todo.id }
-        };
-      }
-    },
-    removeTodoSuccess: {
-      reducer: (state, action: PayloadAction<{ todoId: number }>) => {
-        const { todoId } = action.payload;
-        delete state.todosStatuses[todoId];
-        state.todos = todoEntitiesAdapter.removeOne(state.todos, todoId);
-      },
-      prepare: (todo: Todo) => {
-        return {
-          payload: { todoId: todo.id }
-        };
-      }
-    },
+    // TODO: start/cancel editing
+
+    // TODO: optimisticUpdateTodo
+
+    // TODO: removeTodo
   },
 });
 
